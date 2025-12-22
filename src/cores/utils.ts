@@ -54,6 +54,8 @@ export async function getConfigAddresses(isFragment: boolean): Promise<string[]>
         settings: { enableIPv6, customCdnAddrs, cleanIPs }
     } = globalThis;
 
+    // Resolve Clean IP geos per subscription request to enrich node names.
+    await populateCleanIpGeoMap(cleanIPs);
     const { ipv4, ipv6 } = await resolveDNS(hostName, !enableIPv6);
     const addrs = [
         hostName,
@@ -85,11 +87,94 @@ export function generateRemark(
     const protoSign = protocol === _VL_ ? _VL_CAP_ : _TR_CAP_;
     let addressType;
 
-    cleanIPs.includes(address)
-        ? addressType = 'Clean IP'
-        : addressType = isDomain(address) ? 'Domain' : isIPv4(address) ? 'IPv4' : isIPv6(address) ? 'IPv6' : '';
+    if (cleanIPs.includes(address)) {
+        const geo = globalThis.cleanIpGeoMap?.[address];
+        const flag = geo?.countryCode ? getFlagEmoji(geo.countryCode) : '';
+        const country = geo?.country ? ` ${geo.country}` : '';
+        const geoLabel = flag || country ? ` - ${flag}${country}` : '';
+        addressType = `Clean IP${geoLabel}`;
+    } else {
+        addressType = isDomain(address) ? 'Domain' : isIPv4(address) ? 'IPv4' : isIPv6(address) ? 'IPv6' : '';
+    }
 
     return `💦 ${index} - ${chainSign}${protoSign}${configType} - ${addressType} : ${port}`;
+}
+
+async function populateCleanIpGeoMap(cleanIPs: string[]): Promise<void> {
+    if (!cleanIPs?.length) {
+        globalThis.cleanIpGeoMap = {};
+        return;
+    }
+
+    const targets: Array<{ key: string; query: string }> = [];
+    const seen = new Set<string>();
+
+    for (const ip of cleanIPs) {
+        const normalized = normalizeCleanIpForQuery(ip);
+        if (!normalized) continue;
+        if (seen.has(normalized.query)) continue;
+        seen.add(normalized.query);
+        targets.push(normalized);
+    }
+
+    if (!targets.length) {
+        globalThis.cleanIpGeoMap = {};
+        return;
+    }
+
+    try {
+        // Batch lookup with ip-api.com to avoid per-IP requests.
+        const results: Array<{ query: string; country?: string; countryCode?: string; status?: string }> = [];
+        const batchSize = 100;
+        for (let i = 0; i < targets.length; i += batchSize) {
+            const batch = targets.slice(i, i + batchSize);
+            const response = await fetch('http://ip-api.com/batch?fields=status,message,country,countryCode,query', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(batch.map(item => item.query))
+            });
+            const data = await response.json();
+            if (Array.isArray(data)) results.push(...data);
+        }
+
+        const byQuery: Record<string, { country: string; countryCode: string }> = {};
+        for (const item of results) {
+            if (item?.status !== 'success') continue;
+            if (!item.query || !item.country || !item.countryCode) continue;
+            byQuery[item.query] = { country: item.country, countryCode: item.countryCode };
+        }
+
+        const map: Record<string, { country: string; countryCode: string }> = {};
+        for (const target of targets) {
+            const geo = byQuery[target.query];
+            if (geo) map[target.key] = geo;
+        }
+
+        globalThis.cleanIpGeoMap = map;
+    } catch (error) {
+        console.error('Clean IP geo lookup failed:', error);
+        globalThis.cleanIpGeoMap = {};
+    }
+}
+
+function normalizeCleanIpForQuery(address: string): { key: string; query: string } | null {
+    if (isIPv4(address)) return { key: address, query: address };
+    if (isIPv6(address)) return { key: address, query: address.slice(1, -1) };
+    if (isBareIPv6(address)) return { key: address, query: address };
+    return null;
+}
+
+function isBareIPv6(value: string): boolean {
+    if (!value || value.includes('[') || value.includes(']')) return false;
+    const ipv6Regex = /^(?:(?:[a-fA-F0-9]{1,4}:){7}[a-fA-F0-9]{1,4}|(?:[a-fA-F0-9]{1,4}:){1,7}:|(?:[a-fA-F0-9]{1,4}:){1,6}:[a-fA-F0-9]{1,4}|(?:[a-fA-F0-9]{1,4}:){1,5}(?::[a-fA-F0-9]{1,4}){1,2}|(?:[a-fA-F0-9]{1,4}:){1,4}(?::[a-fA-F0-9]{1,4}){1,3}|(?:[a-fA-F0-9]{1,4}:){1,3}(?::[a-fA-F0-9]{1,4}){1,4}|(?:[a-fA-F0-9]{1,4}:){1,2}(?::[a-fA-F0-9]{1,4}){1,5}|[a-fA-F0-9]{1,4}:(?::[a-fA-F0-9]{1,4}){1,6}|:(?::[a-fA-F0-9]{1,4}){1,7}|::)$/;
+    return ipv6Regex.test(value);
+}
+
+function getFlagEmoji(countryCode: string): string {
+    if (!countryCode || countryCode.length !== 2) return '';
+    const chars = countryCode.toUpperCase().split('');
+    const codePoints = chars.map(char => 127397 + char.charCodeAt(0));
+    return String.fromCodePoint(...codePoints);
 }
 
 export function randomUpperCase(str: string): string {

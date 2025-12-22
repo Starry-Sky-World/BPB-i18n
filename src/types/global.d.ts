@@ -143,6 +143,7 @@ declare global {
     var globalConfig: GlobalConfig;
     var httpConfig: HttpConfig;
     var wsConfig: WsConfig;
+    var cleanIpGeoMap?: Record<string, { country: string; countryCode: string }>;
     var dict: {
         readonly _VL_: string;
         readonly _VL_CAP_: string;
