@@ -120,6 +120,21 @@
                         </div>
                     </div>
                     <div class="form-control">
+                        <label for="cleanIpApiUrl">🧪 CleanIP API URL</label>
+                        <div>
+                            <input type="url" id="cleanIpApiUrl" name="cleanIpApiUrl"
+                                placeholder="http://127.0.0.1:7860/http">
+                        </div>
+                    </div>
+                    <div class="form-control">
+                        <label for="cleanIpFetchBtn">🧹 Fetch CleanIPs</label>
+                        <div>
+                            <button type="button" id="cleanIpFetchBtn" class="button reverse" onclick="fetchCleanIPs()">
+                                Fetch<span id="cleanip-update" class="material-symbols-rounded">autorenew</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-control">
                         <label for="VLConfigs">⚙️ Protocols</label>
                         <div>
                             <div class="protocols inner-container">

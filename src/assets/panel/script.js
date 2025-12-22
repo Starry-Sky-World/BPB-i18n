@@ -499,6 +499,100 @@ function updateSettings(event, data) {
         });
 }
 
+function normalizeCleanIpValue(value) {
+    const trimmed = value.trim();
+    if (isIPv6(trimmed)) {
+        return trimmed;
+    }
+    if (isIPv6CIDR(trimmed)) {
+        return trimmed;
+    }
+    if (isBareIPv6(trimmed)) {
+        return `[${trimmed}]`;
+    }
+    return trimmed;
+}
+
+function isBareIPv6(value) {
+    if (!value || value.includes('[') || value.includes(']')) return false;
+    const ipv6Regex = /^(?:(?:[a-fA-F0-9]{1,4}:){7}[a-fA-F0-9]{1,4}|(?:[a-fA-F0-9]{1,4}:){1,7}:|(?:[a-fA-F0-9]{1,4}:){1,6}:[a-fA-F0-9]{1,4}|(?:[a-fA-F0-9]{1,4}:){1,5}(?::[a-fA-F0-9]{1,4}){1,2}|(?:[a-fA-F0-9]{1,4}:){1,4}(?::[a-fA-F0-9]{1,4}){1,3}|(?:[a-fA-F0-9]{1,4}:){1,3}(?::[a-fA-F0-9]{1,4}){1,4}|(?:[a-fA-F0-9]{1,4}:){1,2}(?::[a-fA-F0-9]{1,4}){1,5}|[a-fA-F0-9]{1,4}:(?::[a-fA-F0-9]{1,4}){1,6}|:(?::[a-fA-F0-9]{1,4}){1,7}|::)$/;
+    return ipv6Regex.test(value);
+}
+
+function mergeCleanIPs(existing, incoming) {
+    const merged = new Set();
+    const addValue = (value) => {
+        const normalized = normalizeCleanIpValue(value);
+        if (!normalized) return;
+        if (!isValidHostName(normalized)) return;
+        merged.add(normalized);
+    };
+
+    existing.forEach(addValue);
+    incoming.forEach(addValue);
+    return [...merged];
+}
+
+function fetchCleanIPs() {
+    const apiUrl = getElmValue('cleanIpApiUrl');
+    if (!apiUrl) {
+        alert('⛔ CleanIP API URL is empty.\n💡 Please fill in the API URL first.');
+        return;
+    }
+
+    let parsedUrl;
+    try {
+        parsedUrl = new URL(apiUrl);
+    } catch {
+        alert('⛔ CleanIP API URL is invalid.');
+        return;
+    }
+
+    const button = document.getElementById('cleanIpFetchBtn');
+    const icon = document.getElementById('cleanip-update');
+    button.disabled = true;
+    icon.classList.add('fa-spin');
+    document.body.style.cursor = 'wait';
+
+    fetch('/panel/cleanip', {
+        method: 'POST',
+        body: JSON.stringify({ apiUrl: parsedUrl.toString() }),
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' }
+    })
+        .then(response => response.json())
+        .then(({ success, status, message, body }) => {
+            if (status === 401) {
+                alert('⚠️ Session expired! Please login again.');
+                window.location.href = '/login';
+                return;
+            }
+
+            if (!success) {
+                throw new Error(message || 'Failed to fetch CleanIPs.');
+            }
+
+            const cleanIpTextarea = document.getElementById('cleanIPs');
+            const existing = parseElmValues('cleanIPs');
+            const merged = mergeCleanIPs(existing, body?.cleanIPs || []);
+            cleanIpTextarea.value = merged.join('\n');
+            cleanIpTextarea.style.height = 'auto';
+            cleanIpTextarea.rows = Math.max(1, merged.length);
+            cleanIpTextarea.style.height = `${cleanIpTextarea.scrollHeight}px`;
+            enableApplyButton();
+            alert(`✅ Added ${merged.length - existing.length} CleanIPs.`);
+        })
+        .catch(error => {
+            console.error("Fetch CleanIPs error:", error.message || error);
+            alert(`⛔ Failed to fetch CleanIPs.\n${error.message || error}`);
+        })
+        .finally(() => {
+            button.disabled = false;
+            icon.classList.remove('fa-spin');
+            document.body.style.cursor = 'default';
+        });
+}
+
 function parseElmValues(id) {
     return document.getElementById(id).value?.split('\n')
         .map(value => value.trim())

@@ -61,6 +61,9 @@ export async function handlePanel(request: Request, env: Env): Promise<Response>
         case '/panel/my-ip':
             return await getMyIP(request);
 
+        case '/panel/cleanip':
+            return await fetchCleanIPs(request, env);
+
         case '/panel/update-warp':
             return await updateWarpConfigs(request, env);
 
@@ -229,6 +232,60 @@ async function getSettings(request: Request, env: Env): Promise<Response> {
     };
 
     return respond(true, HttpStatus.OK, undefined, data);
+}
+
+async function fetchCleanIPs(request: Request, env: Env): Promise<Response> {
+    if (request.method !== 'POST') {
+        return respond(false, HttpStatus.METHOD_NOT_ALLOWED, 'Method not allowed.');
+    }
+
+    const auth = await Authenticate(request, env);
+
+    if (!auth) {
+        return respond(false, HttpStatus.UNAUTHORIZED, 'Unauthorized or expired session.');
+    }
+
+    let apiUrl: string;
+    try {
+        const body = await request.json();
+        apiUrl = body?.apiUrl;
+    } catch {
+        return respond(false, HttpStatus.BAD_REQUEST, 'Invalid JSON body.');
+    }
+
+    if (!apiUrl || typeof apiUrl !== 'string') {
+        return respond(false, HttpStatus.BAD_REQUEST, 'CleanIP API URL is required.');
+    }
+
+    let parsedUrl: URL;
+    try {
+        parsedUrl = new URL(apiUrl);
+    } catch {
+        return respond(false, HttpStatus.BAD_REQUEST, 'CleanIP API URL is invalid.');
+    }
+
+    if (!['http:', 'https:'].includes(parsedUrl.protocol)) {
+        return respond(false, HttpStatus.BAD_REQUEST, 'CleanIP API URL must be http or https.');
+    }
+
+    try {
+        const response = await fetch(parsedUrl.toString(), {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({})
+        });
+
+        if (!response.ok) {
+            return respond(false, HttpStatus.BAD_REQUEST, `CleanIP API error: ${response.status}`);
+        }
+
+        const data = await response.json();
+        const cleanIPs = Array.isArray(data?.response_ips) ? data.response_ips : [];
+        return respond(true, HttpStatus.OK, '', { cleanIPs });
+    } catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        return respond(false, HttpStatus.BAD_REQUEST, `CleanIP API fetch failed: ${message}`);
+    }
 }
 
 export async function fallback(request: Request): Promise<Response> {
