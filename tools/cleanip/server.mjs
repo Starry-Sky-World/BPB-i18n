@@ -92,8 +92,20 @@ const runWS = async (runner) => {
     };
 };
 
+const fixedAddr = 'freeyx.cloudflare88.eu.org';
+
+const sanitizeHttpBody = (body) => {
+    const safeBody = body && typeof body === 'object' ? {...body} : {};
+    // Force fixed target; ignore any caller-supplied addr.
+    safeBody.addr = fixedAddr;
+    return safeBody;
+};
+
 const routes = {
-    'POST /http': (body) => runWS((onMessage) => client.http(body, onMessage)),
+    'POST /http': async (body) => {
+        const data = await runWS((onMessage) => client.http(sanitizeHttpBody(body), onMessage));
+        return {response_ips: data.response_ips};
+    },
 };
 
 const server = http.createServer(async (req, res) => {
