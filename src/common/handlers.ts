@@ -247,8 +247,8 @@ async function fetchCleanIPs(request: Request, env: Env): Promise<Response> {
 
     let apiUrl: string;
     try {
-        const body = await request.json();
-        apiUrl = body?.apiUrl;
+        const body = await request.json() as { apiUrl?: string };
+        apiUrl = body?.apiUrl ?? '';
     } catch {
         return respond(false, HttpStatus.BAD_REQUEST, 'Invalid JSON body.');
     }
@@ -279,7 +279,7 @@ async function fetchCleanIPs(request: Request, env: Env): Promise<Response> {
             return respond(false, HttpStatus.BAD_REQUEST, `CleanIP API error: ${response.status}`);
         }
 
-        const data = await response.json();
+        const data = await response.json() as { response_ips?: unknown };
         const cleanIPs = Array.isArray(data?.response_ips) ? data.response_ips : [];
         return respond(true, HttpStatus.OK, '', { cleanIPs });
     } catch (error) {
