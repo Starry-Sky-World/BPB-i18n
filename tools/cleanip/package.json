@@ -1,0 +1,14 @@
+{
+  "name": "cleanip",
+  "version": "1.0.0",
+  "description": "CleanIP tool server",
+  "private": true,
+  "type": "module",
+  "main": "server.mjs",
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "dependencies": {
+    "itdog-web-api": "^1.0.0"
+  }
+}
