@@ -13,12 +13,16 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     let relativePath = currentPath;
+    const legacyPrefix = '/BPB-Worker-Panel/';
+
     if (base && currentPath.startsWith(`${base}/fa/`)) {
         relativePath = currentPath.slice(`${base}/fa/`.length);
     } else if (base && currentPath.startsWith(`${base}/zh/`)) {
         relativePath = currentPath.slice(`${base}/zh/`.length);
     } else if (base && currentPath.startsWith(`${base}/`)) {
         relativePath = currentPath.slice(`${base}/`.length);
+    } else if (!base && currentPath.startsWith(legacyPrefix)) {
+        relativePath = currentPath.slice(legacyPrefix.length);
     } else if (currentPath.startsWith('/fa/')) {
         relativePath = currentPath.slice('/fa/'.length);
     } else if (currentPath.startsWith('/zh/')) {
