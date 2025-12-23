@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const langLinks = document.querySelectorAll('a[hreflang]');
     if (!langLinks.length) return;
     const currentPath = window.location.pathname;
-    const base = "/BPB-Worker-Panel";
+    const base = currentPath.includes('/BPB-Worker-Panel/') ? '/BPB-Worker-Panel' : '';
     const langPrefixes = {
         en: "",
         fa: "fa",
@@ -10,12 +10,18 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     let relativePath = currentPath;
-    if (currentPath.startsWith(`${base}/fa/`)) {
+    if (base && currentPath.startsWith(`${base}/fa/`)) {
         relativePath = currentPath.slice(`${base}/fa/`.length);
-    } else if (currentPath.startsWith(`${base}/zh/`)) {
+    } else if (base && currentPath.startsWith(`${base}/zh/`)) {
         relativePath = currentPath.slice(`${base}/zh/`.length);
-    } else if (currentPath.startsWith(`${base}/`)) {
+    } else if (base && currentPath.startsWith(`${base}/`)) {
         relativePath = currentPath.slice(`${base}/`.length);
+    } else if (currentPath.startsWith('/fa/')) {
+        relativePath = currentPath.slice('/fa/'.length);
+    } else if (currentPath.startsWith('/zh/')) {
+        relativePath = currentPath.slice('/zh/'.length);
+    } else if (currentPath.startsWith('/')) {
+        relativePath = currentPath.slice(1);
     }
 
     const trimmedRelative = relativePath.replace(/^\\//, "");
@@ -23,9 +29,10 @@ document.addEventListener("DOMContentLoaded", () => {
     langLinks.forEach((link) => {
         const lang = link.getAttribute('hreflang');
         const prefix = langPrefixes[lang] || "";
+        const newPathBase = base || '';
         const newPath = prefix
-            ? `${base}/${prefix}/${trimmedRelative}`
-            : `${base}/${trimmedRelative}`;
+            ? `${newPathBase}/${prefix}/${trimmedRelative}`
+            : `${newPathBase}/${trimmedRelative}`;
         link.setAttribute("href", newPath);
     });
 });
