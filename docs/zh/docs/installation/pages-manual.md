@@ -10,7 +10,7 @@
 
 ### 2. 创建 Pages 项目
 
-从 [此处下载 Worker zip](https://github.com/bia-pain-bache/BPB-Worker-Panel/releases/latest/download/worker.zip)。
+从 [此处下载 Worker zip](https://github.com/Starry-Sky-World/BPB-i18n/releases/latest/download/worker.zip)。
 
 在 Cloudflare 控制台进入 `Developer Platform`，点击 `Create application`，选择 `Pages`，然后 `Use direct upload` > `Get started`。
 
@@ -99,7 +99,7 @@ https://www.nslookup.io/domains/bpb.yousef.isegaro.com/dns-records/
 在项目 `Settings` 中打开 `Variables and Secrets`，点击 `Add` 并在第一个输入框填写 `NAT64_PREFIX`（大写）。前缀列表见：
 
 ```text
-https://github.com/bia-pain-bache/BPB-Worker-Panel/blob/main/NAT64Prefixes.md
+https://github.com/Starry-Sky-World/BPB-i18n/blob/main/NAT64Prefixes.md
 ```
 
 !!! info
@@ -126,4 +126,4 @@ https://github.com/bia-pain-bache/BPB-Worker-Panel/blob/main/NAT64Prefixes.md
 
 ## 更新面板
 
-下载最新 zip 文件：[worker.zip](https://github.com/bia-pain-bache/BPB-Worker-Panel/releases/latest/download/worker.zip)。在 Cloudflare 控制台进入 `Compute (Workers)` > `Workers & Pages`，选择 Pages 项目，点击 `Create deployment` 并上传新 zip 即可。
+下载最新 zip 文件：[worker.zip](https://github.com/Starry-Sky-World/BPB-i18n/releases/latest/download/worker.zip)。在 Cloudflare 控制台进入 `Compute (Workers)` > `Workers & Pages`，选择 Pages 项目，点击 `Create deployment` 并上传新 zip 即可。

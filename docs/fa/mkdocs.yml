@@ -1,6 +1,6 @@
 site_name: BPB Panel
 site_url: https://bia-pain-bache.github.io
-repo_url: https://github.com/bia-pain-bache/BPB-Worker-Panel
+repo_url: https://github.com/Starry-Sky-World/BPB-i18n
 copyright: Copyright &copy; BPB
 
 use_directory_urls: true
@@ -71,7 +71,7 @@ extra:
       link: /zh/
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/bia-pain-bache/BPB-Worker-Panel
+      link: https://github.com/Starry-Sky-World/BPB-i18n
       name: Source code
 
 plugins:

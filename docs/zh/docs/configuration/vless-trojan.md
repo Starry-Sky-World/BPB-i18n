@@ -115,7 +115,7 @@ Proxy IP 只修正 Cloudflare 目标地址的 IP，对其他目标仍可能不�
 !!! note
     面板内修改 NAT64 前缀后若前缀失效需更新订阅，可能影响捐赠配置。此方式建议仅个人使用。其他方法无需更新订阅。
 
-可从 [这里获取 NAT64 前缀](https://github.com/bia-pain-bache/BPB-Worker-Panel/blob/main/docs/NAT64Prefixes.md)，按地区与 ISP 列出。
+可从 [这里获取 NAT64 前缀](https://github.com/Starry-Sky-World/BPB-i18n/blob/main/docs/NAT64Prefixes.md)，按地区与 ISP 列出。
 
 !!! info
     多个前缀可逐行填写。

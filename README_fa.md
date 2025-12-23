@@ -87,12 +87,13 @@
 
 ## تعداد ستاره‌ها به مرور زمان
 
-[![تعداد ستاره‌ها به مرور زمان](https://starchart.cc/bia-pain-bache/BPB-Worker-Panel.svg?variant=adaptive)](https://starchart.cc/bia-pain-bache/BPB-Worker-Panel)
+[![تعداد ستاره‌ها به مرور زمان](https://starchart.cc/Starry-Sky-World/BPB-i18n.svg?variant=adaptive)](https://starchart.cc/Starry-Sky-World/BPB-i18n)
 
 ---
 
 ### تشکر ویژه
 
+- مخزن اصلی: https://github.com/bia-pain-bache/BPB-Worker-Panel
 - نویسنده پروتکل‌های VLESS و Trojan [پروکسی Cloudflare-workers/pages](https://github.com/yonggekkk/Cloudflare-workers-pages-vless)
 - نویسنده کد CF-vless [3Kmfi6HP](https://github.com/3Kmfi6HP/EDtunnel)
 - نویسنده برنامه IP ترجیحی CF [badafans](https://github.com/badafans/Cloudflare-IP-SpeedTest)، [XIU2](https://github.com/XIU2/CloudflareSpeedTest)

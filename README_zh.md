@@ -79,12 +79,13 @@
 
 ## Stargazers Over Time
 
-[![Stargazers Over Time](https://starchart.cc/bia-pain-bache/BPB-Worker-Panel.svg?variant=adaptive)](https://starchart.cc/bia-pain-bache/BPB-Worker-Panel)
+[![Stargazers Over Time](https://starchart.cc/Starry-Sky-World/BPB-i18n.svg?variant=adaptive)](https://starchart.cc/Starry-Sky-World/BPB-i18n)
 
 ---
 
 ### 特别感谢
 
+- 原始仓库：https://github.com/bia-pain-bache/BPB-Worker-Panel
 - VLESS, Trojan [Cloudflare-workers/pages proxy script](https://github.com/yonggekkk/Cloudflare-workers-pages-vless) created by [yonggekkk](https://github.com/yonggekkk)
 - CF-vless code author [3Kmfi6HP](https://github.com/3Kmfi6HP/EDtunnel)
 - CF preferred IP program author [badafans](https://github.com/badafans/Cloudflare-IP-SpeedTest), [XIU2](https://github.com/XIU2/CloudflareSpeedTest)
