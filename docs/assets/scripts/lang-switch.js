@@ -2,7 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const langLinks = document.querySelectorAll('a[hreflang]');
     if (!langLinks.length) return;
     const currentPath = window.location.pathname;
-    const base = currentPath.includes('/BPB-Worker-Panel/') ? '/BPB-Worker-Panel' : '';
+    const isGithubPages = window.location.hostname.endsWith('github.io');
+    const base = isGithubPages && currentPath.includes('/BPB-Worker-Panel/')
+        ? '/BPB-Worker-Panel'
+        : '';
     const langPrefixes = {
         en: "",
         fa: "fa",
