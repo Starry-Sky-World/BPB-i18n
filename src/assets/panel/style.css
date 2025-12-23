@@ -94,6 +94,22 @@ h1 {
     margin-bottom: 30px;
 }
 
+.language-switcher {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 auto 20px;
+}
+
+.language-switcher select {
+    padding: 6px 10px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    background: var(--input-background-color);
+    color: var(--color);
+}
+
 .configForm {
     display: flex;
     flex-direction: column;
@@ -193,6 +209,23 @@ a.scanner {
     margin-left: 8px;
     width: unset;
     color: var(--button-color);
+}
+
+:root[dir="rtl"] body {
+    direction: rtl;
+}
+
+:root[dir="rtl"] .form-control {
+    align-items: flex-end;
+}
+
+:root[dir="rtl"] .form-control label {
+    text-align: right;
+}
+
+:root[dir="rtl"] a.scanner {
+    margin-left: 0;
+    margin-right: 8px;
 }
 
 button.reverse {

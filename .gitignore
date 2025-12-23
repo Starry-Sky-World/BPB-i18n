@@ -10,6 +10,7 @@
 !.github/**
 !README_fa.md
 !README.md
+!README_zh.md
 !RELEASE.md
 !AGENTS.md
 !NAT64Prefixes.md

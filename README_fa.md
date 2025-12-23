@@ -1,6 +1,6 @@
 <h1 align="center">پنل BPB</h1>
 
-#### 🌏 Readme in [English](README.md)
+#### 🌏 Readme in [English](README.md) | [中文](README_zh.md)
 
 <p align="center">
   <img src="docs/assets/images/panel-overview.jpg">

@@ -71,6 +71,22 @@ h2 {
     flex-direction: column;
 }
 
+.lang-switcher {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 auto 12px;
+}
+
+.lang-switcher select {
+    padding: 6px 10px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    background: var(--input-background-color);
+    color: var(--color);
+}
+
 .login-form {
     display: flex;
     flex-direction: column;
@@ -111,6 +127,25 @@ label {
     cursor: pointer;
     user-select: none;
     color: darkgray;
+}
+
+html[dir="rtl"] body {
+    direction: rtl;
+}
+
+html[dir="rtl"] .form-control {
+    flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .password-wrapper input[type=password],
+html[dir="rtl"] .password-wrapper input[type=text] {
+    padding-left: 40px;
+    padding-right: 10px;
+}
+
+html[dir="rtl"] .toggle-password {
+    left: 10px;
+    right: auto;
 }
 
 input[type="text"],

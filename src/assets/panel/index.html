@@ -19,67 +19,75 @@
             v__VERSION__
         </span>
     </h1>
+    <div class="language-switcher">
+        <label for="languageSelect" data-i18n="language.label">Language</label>
+        <select id="languageSelect">
+            <option value="en">English</option>
+            <option value="fa">فارسی</option>
+            <option value="zh">中文</option>
+        </select>
+    </div>
     <div class="form-container container">
-        <h2><span class="material-symbols-rounded">settings</span> Settings</h2>
+        <h2><span class="material-symbols-rounded">settings</span> <span data-i18n="settings.title">Settings</span></h2>
         <form id="configForm" class="configForm" onsubmit="updateSettings(event)">
             <details>
                 <summary>
-                    <h3>Common
+                    <h3><span data-i18n="settings.common">Common</span>
                         <a href="https://bia-pain-bache.github.io/BPB-Worker-Panel/configuration/common/"
-                            target="_blank" title="Help">
+                            target="_blank" data-i18n-title="common.help" title="Help">
                             <span class="material-symbols-rounded">info</span>
                         </a>
                     </h3>
                 </summary>
                 <div class="section">
                     <div class="form-control">
-                        <label for="localDNS">🏚️ Local DNS</label>
+                        <label for="localDNS" data-i18n="form.localDns">🏚️ Local DNS</label>
                         <div>
                             <input type="text" id="localDNS" name="localDNS" required>
                         </div>
                     </div>
                     <div class="form-control">
-                        <label for="antiSanctionDNS">🌏 Anti Sanction DNS</label>
+                        <label for="antiSanctionDNS" data-i18n="form.antiSanctionDns">🌏 Anti Sanction DNS</label>
                         <div>
                             <input type="text" id="antiSanctionDNS" name="antiSanctionDNS" required>
                         </div>
                     </div>
                     <div class="form-control">
-                        <label for="fakeDNS">🧢 Fake DNS</label>
+                        <label for="fakeDNS" data-i18n="form.fakeDns">🧢 Fake DNS</label>
                         <div>
                             <select id="fakeDNS" name="fakeDNS">
-                                <option value="true">Enabled</option>
-                                <option value="false">Disabled</option>
+                                <option value="true" data-i18n="options.enabled">Enabled</option>
+                                <option value="false" data-i18n="options.disabled">Disabled</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-control">
-                        <label for="enableIPv6">🔛 IPv6</label>
+                        <label for="enableIPv6" data-i18n="form.ipv6">🔛 IPv6</label>
                         <div>
                             <select id="enableIPv6" name="enableIPv6">
-                                <option value="true">Enabled</option>
-                                <option value="false">Disabled</option>
+                                <option value="true" data-i18n="options.enabled">Enabled</option>
+                                <option value="false" data-i18n="options.disabled">Disabled</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-control">
-                        <label for="allowLANConnection">⛔ Allow connections from LAN</label>
+                        <label for="allowLANConnection" data-i18n="form.allowLan">⛔ Allow connections from LAN</label>
                         <div>
                             <select id="allowLANConnection" name="allowLANConnection">
-                                <option value="true">Enabled</option>
-                                <option value="false">Disabled</option>
+                                <option value="true" data-i18n="options.enabled">Enabled</option>
+                                <option value="false" data-i18n="options.disabled">Disabled</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-control">
-                        <label for="logLevel">🎚️ Log Level</label>
+                        <label for="logLevel" data-i18n="form.logLevel">🎚️ Log Level</label>
                         <div>
                             <select id="logLevel" name="logLevel">
-                                <option value="none">Disabled</option>
-                                <option value="warning">Warning</option>
-                                <option value="error">Error</option>
-                                <option value="info">Info</option>
-                                <option value="debug">Debug</option>
+                                <option value="none" data-i18n="options.disabled">Disabled</option>
+                                <option value="warning" data-i18n="options.warning">Warning</option>
+                                <option value="error" data-i18n="options.error">Error</option>
+                                <option value="info" data-i18n="options.info">Info</option>
+                                <option value="debug" data-i18n="options.debug">Debug</option>
                             </select>
                         </div>
                     </div>
@@ -87,31 +95,32 @@
             </details>
             <details class="details">
                 <summary>
-                    <h3>VLESS - Trojan
+                    <h3><span data-i18n="settings.vlessTrojan">VLESS - Trojan</span>
                         <a href="https://bia-pain-bache.github.io/BPB-Worker-Panel/configuration/vless-trojan/"
-                            target="_blank" title="Help">
+                            target="_blank" data-i18n-title="common.help" title="Help">
                             <span class="material-symbols-rounded">info</span>
                         </a>
                     </h3>
                 </summary>
                 <div class="section">
                     <div class="form-control">
-                        <label for="remoteDNS">🌏 Remote DNS</label>
+                        <label for="remoteDNS" data-i18n="form.remoteDns">🌏 Remote DNS</label>
                         <div>
                             <input type="text" id="remoteDNS" name="remoteDNS" required>
                         </div>
                     </div>
                     <div class="form-control">
-                        <label for="outProxy">✈️ Chain Proxy</label>
+                        <label for="outProxy" data-i18n="form.chainProxy">✈️ Chain Proxy</label>
                         <div>
                             <input type="text" id="outProxy" name="outProxy">
                         </div>
                     </div>
                     <div class="form-control">
                         <label for="cleanIPs">
-                            ✨ Clean IPs / Domains
+                            <span data-i18n="form.cleanIps">✨ Clean IPs / Domains</span>
                             <a class="scanner" href="https://github.com/bia-pain-bache/Cloudflare-Clean-IP-Scanner"
-                                title="Scanner" target="_blank" rel="noopener noreferrer">
+                                data-i18n-title="common.scanner" title="Scanner" target="_blank"
+                                rel="noopener noreferrer">
                                 <span class="material-symbols-rounded">open_in_new</span>
                             </a>
                         </label>
@@ -120,51 +129,53 @@
                         </div>
                     </div>
                     <div class="form-control">
-                        <label for="cleanIpApiUrl">🧪 CleanIP API URL</label>
+                        <label for="cleanIpApiUrl" data-i18n="form.cleanIpApiUrl">🧪 CleanIP API URL</label>
                         <div>
                             <input type="url" id="cleanIpApiUrl" name="cleanIpApiUrl"
-                                placeholder="http://127.0.0.1:7860/http">
+                                placeholder="http://127.0.0.1:7860/http"
+                                data-i18n-placeholder="form.cleanIpApiPlaceholder">
                         </div>
                     </div>
                     <div class="form-control">
-                        <label for="cleanIpFetchBtn">🧹 Fetch CleanIPs</label>
+                        <label for="cleanIpFetchBtn" data-i18n="form.fetchCleanIps">🧹 Fetch CleanIPs</label>
                         <div>
                             <button type="button" id="cleanIpFetchBtn" class="button reverse" onclick="fetchCleanIPs()">
-                                Fetch<span id="cleanip-update" class="material-symbols-rounded">autorenew</span>
+                                <span data-i18n="actions.fetch">Fetch</span><span id="cleanip-update"
+                                    class="material-symbols-rounded">autorenew</span>
                             </button>
                         </div>
                     </div>
                     <div class="form-control">
-                        <label for="VLConfigs">⚙️ Protocols</label>
+                        <label for="VLConfigs" data-i18n="form.protocols">⚙️ Protocols</label>
                         <div>
                             <div class="protocols inner-container">
                                 <div class="proto">
                                     <input type="checkbox" id="VLConfigs" name="VLConfigs" value="true"
                                         onchange="handleProtocolChange(event)">
-                                    <label for="VLConfigs">VLESS</label>
+                                    <label for="VLConfigs" data-i18n="protocols.vless">VLESS</label>
                                 </div>
                                 <div class="proto">
                                     <input type="checkbox" id="TRConfigs" name="TRConfigs" value="true"
                                         onchange="handleProtocolChange(event)">
-                                    <label for="TRConfigs">Trojan</label>
+                                    <label for="TRConfigs" data-i18n="protocols.trojan">Trojan</label>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-control">
-                        <label for="tls-ports">🔒 TLS Ports</label>
+                        <label for="tls-ports" data-i18n="form.tlsPorts">🔒 TLS Ports</label>
                         <div>
                             <div id="tls-ports" class="rules inner-container"></div>
                         </div>
                     </div>
                     <div id="none-tls" class="form-control" style="display: none;">
-                        <label for="non-tls-ports">🔓 non-TLS Ports</label>
+                        <label for="non-tls-ports" data-i18n="form.nonTlsPorts">🔓 non-TLS Ports</label>
                         <div>
                             <div id="non-tls-ports" class="rules inner-container"></div>
                         </div>
                     </div>
                     <div class="form-control">
-                        <label for="fingerprint">👆 Fingerprint</label>
+                        <label for="fingerprint" data-i18n="form.fingerprint">👆 Fingerprint</label>
                         <div>
                             <select id="fingerprint" name="fingerprint">
                                 <option value="chrome">chrome</option>
@@ -181,38 +192,40 @@
                         </div>
                     </div>
                     <div class="form-control">
-                        <label for="bestVLTRInterval">🔄 Best Interval</label>
+                        <label for="bestVLTRInterval" data-i18n="form.bestInterval">🔄 Best Interval</label>
                         <div>
                             <input type="number" id="bestVLTRInterval" name="bestVLTRInterval" min="10" max="90">
                         </div>
                     </div>
                     <div class="form-control">
-                        <label for="enableTFO">⏩ TCP Fast Open</label>
+                        <label for="enableTFO" data-i18n="form.tcpFastOpen">⏩ TCP Fast Open</label>
                         <div>
                             <select id="enableTFO" name="enableTFO">
-                                <option value="true">Enabled</option>
-                                <option value="false">Disabled</option>
+                                <option value="true" data-i18n="options.enabled">Enabled</option>
+                                <option value="false" data-i18n="options.disabled">Disabled</option>
                             </select>
                         </div>
                     </div>
                     <div class="container">
                         <div class="section">
-                            <h4><span class="material-symbols-rounded">tune</span> Proxy IP</h4>
+                            <h4><span class="material-symbols-rounded">tune</span> <span
+                                    data-i18n="section.proxyIp">Proxy IP</span></h4>
                             <div class="form-control">
-                                <label for="proxyIPMode">🎚️ Mode</label>
+                                <label for="proxyIPMode" data-i18n="form.mode">🎚️ Mode</label>
                                 <div>
                                     <select id="proxyIPMode" name="proxyIPMode">
-                                        <option value="proxyip">Proxy IP</option>
-                                        <option value="prefix">NAT64</option>
+                                        <option value="proxyip" data-i18n="options.proxyIp">Proxy IP</option>
+                                        <option value="prefix" data-i18n="options.nat64">NAT64</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-control">
                                 <label for="proxyIPs">
-                                    📍 Proxy IPs / Domains
+                                    <span data-i18n="form.proxyIps">📍 Proxy IPs / Domains</span>
                                     <a class="scanner"
                                         href="https://www.nslookup.io/domains/bpb.yousef.isegaro.com/dns-records/"
-                                        title="Proxy IPs" target="_blank" rel="noopener noreferrer">
+                                        data-i18n-title="form.proxyIpsTitle" title="Proxy IPs" target="_blank"
+                                        rel="noopener noreferrer">
                                         <span class="material-symbols-rounded">open_in_new</span>
                                     </a>
                                 </label>
@@ -222,10 +235,11 @@
                             </div>
                             <div class="form-control">
                                 <label for="prefixes">
-                                    📍 NAT64 Prefixes
+                                    <span data-i18n="form.nat64Prefixes">📍 NAT64 Prefixes</span>
                                     <a class="scanner"
                                         href="https://github.com/bia-pain-bache/BPB-Worker-Panel/blob/main/docs/NAT64Prefixes.md"
-                                        title="NAT64 prefixes" target="_blank" rel="noopener noreferrer">
+                                        data-i18n-title="form.nat64PrefixesTitle" title="NAT64 prefixes"
+                                        target="_blank" rel="noopener noreferrer">
                                         <span class="material-symbols-rounded">open_in_new</span>
                                     </a>
                                 </label>
@@ -237,21 +251,22 @@
                     </div>
                     <div class="container">
                         <div class="section">
-                            <h4><span class="material-symbols-rounded">tune</span> Custom CDN</h4>
+                            <h4><span class="material-symbols-rounded">tune</span> <span
+                                    data-i18n="section.customCdn">Custom CDN</span></h4>
                             <div class="form-control">
-                                <label for="customCdnAddrs">💀 Addresses</label>
+                                <label for="customCdnAddrs" data-i18n="form.customCdnAddresses">💀 Addresses</label>
                                 <div>
                                     <textarea type="text" id="customCdnAddrs" name="customCdnAddrs" rows="1"></textarea>
                                 </div>
                             </div>
                             <div class="form-control">
-                                <label for="customCdnHost">💀 Host</label>
+                                <label for="customCdnHost" data-i18n="form.customCdnHost">💀 Host</label>
                                 <div>
                                     <input type="text" id="customCdnHost" name="customCdnHost">
                                 </div>
                             </div>
                             <div class="form-control">
-                                <label for="customCdnSni">💀 SNI</label>
+                                <label for="customCdnSni" data-i18n="form.customCdnSni">💀 SNI</label>
                                 <div>
                                     <input type="text" id="customCdnSni" name="customCdnSni">
                                 </div>
@@ -262,28 +277,28 @@
             </details>
             <details>
                 <summary>
-                    <h3>Xray Fragment
+                    <h3><span data-i18n="settings.xrayFragment">Xray Fragment</span>
                         <a href="https://bia-pain-bache.github.io/BPB-Worker-Panel/configuration/fragment/"
-                            target="_blank" title="Help">
+                            target="_blank" data-i18n-title="common.help" title="Help">
                             <span class="material-symbols-rounded">info</span>
                         </a>
                     </h3>
                 </summary>
                 <div class="section">
                     <div class="form-control">
-                        <label for="fragmentMode">🎚️ Mode</label>
+                        <label for="fragmentMode" data-i18n="form.mode">🎚️ Mode</label>
                         <div>
                             <select id="fragmentMode" name="fragmentMode" onchange="handleFragmentMode()">
-                                <option value="custom">Custom</option>
-                                <option value="low">Low</option>
-                                <option value="medium">Medium</option>
-                                <option value="high">High</option>
-                                <option value="severe">Severe</option>
+                                <option value="custom" data-i18n="options.custom">Custom</option>
+                                <option value="low" data-i18n="options.low">Low</option>
+                                <option value="medium" data-i18n="options.medium">Medium</option>
+                                <option value="high" data-i18n="options.high">High</option>
+                                <option value="severe" data-i18n="options.severe">Severe</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-control">
-                        <label for="fragmentLengthMin">📐 Length</label>
+                        <label for="fragmentLengthMin" data-i18n="form.fragmentLength">📐 Length</label>
                         <div class="min-max">
                             <input type="number" id="fragmentLengthMin" name="fragmentLengthMin" min="1" required>
                             <span>-</span>
@@ -291,7 +306,7 @@
                         </div>
                     </div>
                     <div class="form-control">
-                        <label for="fragmentIntervalMin">🕞 Interval</label>
+                        <label for="fragmentIntervalMin" data-i18n="form.fragmentInterval">🕞 Interval</label>
                         <div class="min-max">
                             <input type="number" id="fragmentIntervalMin" name="fragmentIntervalMin" min="1" max="30"
                                 required>
@@ -301,7 +316,7 @@
                         </div>
                     </div>
                     <div class="form-control">
-                        <label for="fragmentMaxSplitMin">⛓️ Max Split</label>
+                        <label for="fragmentMaxSplitMin" data-i18n="form.fragmentMaxSplit">⛓️ Max Split</label>
                         <div class="min-max">
                             <input type="number" id="fragmentMaxSplitMin" name="fragmentMaxSplitMin" min="2">
                             <span>-</span>
@@ -309,7 +324,7 @@
                         </div>
                     </div>
                     <div class="form-control">
-                        <label for="fragmentPackets">📦 Packets</label>
+                        <label for="fragmentPackets" data-i18n="form.fragmentPackets">📦 Packets</label>
                         <div>
                             <select id="fragmentPackets" name="fragmentPackets">
                                 <option value="tlshello">tlshello</option>
@@ -324,25 +339,26 @@
             </details>
             <details>
                 <summary>
-                    <h3>Warp General
+                    <h3><span data-i18n="settings.warpGeneral">Warp General</span>
                         <a href="https://bia-pain-bache.github.io/BPB-Worker-Panel/configuration/warp/" target="_blank"
-                            title="Help">
+                            data-i18n-title="common.help" title="Help">
                             <span class="material-symbols-rounded">info</span>
                         </a>
                     </h3>
                 </summary>
                 <div class="section">
                     <div class="form-control">
-                        <label for="warpRemoteDNS">🌏 remote DNS</label>
+                        <label for="warpRemoteDNS" data-i18n="form.warpRemoteDns">🌏 remote DNS</label>
                         <div>
                             <input type="text" id="warpRemoteDNS" name="warpRemoteDNS" required>
                         </div>
                     </div>
                     <div class="form-control">
                         <label for="warpEndpoints">
-                            ✨ Endpoints
-                            <a class="scanner" href="https://github.com/bia-pain-bache/BPB-Warp-Scanner" title="Scanner"
-                                target="_blank" rel="noopener noreferrer">
+                            <span data-i18n="form.warpEndpoints">✨ Endpoints</span>
+                            <a class="scanner" href="https://github.com/bia-pain-bache/BPB-Warp-Scanner"
+                                data-i18n-title="common.scanner" title="Scanner" target="_blank"
+                                rel="noopener noreferrer">
                                 <span class="material-symbols-rounded">open_in_new</span>
                             </a>
                         </label>
@@ -351,16 +367,17 @@
                         </div>
                     </div>
                     <div class="form-control">
-                        <label for="bestWarpInterval">🔄 Best Interval</label>
+                        <label for="bestWarpInterval" data-i18n="form.bestInterval">🔄 Best Interval</label>
                         <div>
                             <input type="number" id="bestWarpInterval" name="bestWarpInterval" min="10" max="90">
                         </div>
                     </div>
                     <div class="form-control">
-                        <label for="refreshBtn">♻️ Warp Accounts</label>
+                        <label for="refreshBtn" data-i18n="form.warpAccounts">♻️ Warp Accounts</label>
                         <div>
                             <button type="button" class="button reverse" onclick="updateWarpConfigs()">
-                                Update<span id="warp-update" class="material-symbols-rounded">autorenew</span>
+                                <span data-i18n="actions.update">Update</span><span id="warp-update"
+                                    class="material-symbols-rounded">autorenew</span>
                             </button>
                         </div>
                     </div>
@@ -368,9 +385,9 @@
             </details>
             <details>
                 <summary>
-                    <h3>Warp PRO
+                    <h3><span data-i18n="settings.warpPro">Warp PRO</span>
                         <a href="https://bia-pain-bache.github.io/BPB-Worker-Panel/configuration/warp-pro/"
-                            target="_blank" title="Help">
+                            target="_blank" data-i18n-title="common.help" title="Help">
                             <span class="material-symbols-rounded">info</span>
                         </a>
                     </h3>
@@ -378,17 +395,19 @@
                 <div class="section">
                     <div class="container">
                         <div class="section">
-                            <h4><span class="material-symbols-rounded">tune</span> MahsaNG Noise</h4>
+                            <h4><span class="material-symbols-rounded">tune</span> <span
+                                    data-i18n="section.mahsaNoise">MahsaNG Noise</span></h4>
                             <div class="form-control">
-                                <label for="knockerNoiseMode">😵‍💫 Mode</label>
+                                <label for="knockerNoiseMode" data-i18n="form.mode">😵‍💫 Mode</label>
                                 <div>
                                     <input type="text" id="knockerNoiseMode" name="knockerNoiseMode"
+                                        data-i18n-title="form.noiseModeTitle"
                                         title="Fill in 'none', 'quic', 'random', or any HEX string like 'ee0000000108aaaa'"
                                         required>
                                 </div>
                             </div>
                             <div class="form-control">
-                                <label for="noiseCountMin">🎚️ Count</label>
+                                <label for="noiseCountMin" data-i18n="form.noiseCount">🎚️ Count</label>
                                 <div class="min-max">
                                     <input type="number" id="noiseCountMin" name="noiseCountMin" min="1" required>
                                     <span>-</span>
@@ -396,7 +415,7 @@
                                 </div>
                             </div>
                             <div class="form-control">
-                                <label for="noiseSizeMin">📏 Size</label>
+                                <label for="noiseSizeMin" data-i18n="form.noiseSize">📏 Size</label>
                                 <div class="min-max">
                                     <input type="number" id="noiseSizeMin" name="noiseSizeMin" min="1" required>
                                     <span>-</span>
@@ -404,7 +423,7 @@
                                 </div>
                             </div>
                             <div class="form-control">
-                                <label for="noiseDelayMin">🕞 Delay</label>
+                                <label for="noiseDelayMin" data-i18n="form.noiseDelay">🕞 Delay</label>
                                 <div class="min-max">
                                     <input type="number" id="noiseDelayMin" name="noiseDelayMin" min="1" required>
                                     <span>-</span>
@@ -415,16 +434,17 @@
                     </div>
                     <div class="container">
                         <div class="section">
-                            <h4><span class="material-symbols-rounded">tune</span> Clash - Amnezia Noise</h4>
+                            <h4><span class="material-symbols-rounded">tune</span> <span
+                                    data-i18n="section.clashNoise">Clash - Amnezia Noise</span></h4>
                             <div class="form-control">
-                                <label for="amneziaNoiseCount">🎚️ Count</label>
+                                <label for="amneziaNoiseCount" data-i18n="form.noiseCount">🎚️ Count</label>
                                 <div>
                                     <input type="number" id="amneziaNoiseCount" name="amneziaNoiseCount" min="1"
                                         required>
                                 </div>
                             </div>
                             <div class="form-control">
-                                <label for="amneziaNoiseSizeMin">📏 Size</label>
+                                <label for="amneziaNoiseSizeMin" data-i18n="form.noiseSize">📏 Size</label>
                                 <div class="min-max">
                                     <input type="number" id="amneziaNoiseSizeMin" name="amneziaNoiseSizeMin" min="1"
                                         required>
@@ -437,7 +457,8 @@
                     </div>
                     <div id="udp-noise-container" class="container">
                         <div class="header-container">
-                            <h4><span class="material-symbols-rounded">tune</span> v2rayNG - v2rayN Noise</h4>
+                            <h4><span class="material-symbols-rounded">tune</span> <span
+                                    data-i18n="section.v2rayNoise">v2rayNG - v2rayN Noise</span></h4>
                             <button type="button" class="add-noise" onclick="addUdpNoise(true)">
                                 <span class="material-symbols-rounded">add_circle</span>
                             </button>
@@ -448,146 +469,149 @@
             </details>
             <details>
                 <summary>
-                    <h3>Routing Rules
+                    <h3><span data-i18n="settings.routingRules">Routing Rules</span>
                         <a href="https://bia-pain-bache.github.io/BPB-Worker-Panel/configuration/routing-rules/"
-                            target="_blank" title="Help">
+                            target="_blank" data-i18n-title="common.help" title="Help">
                             <span class="material-symbols-rounded">info</span>
                         </a>
                     </h3>
                 </summary>
                 <div class="section">
                     <div class="container">
-                        <h4><span class="material-symbols-rounded">tune</span> Preset Rules</h4>
+                        <h4><span class="material-symbols-rounded">tune</span> <span
+                                data-i18n="section.presetRules">Preset Rules</span></h4>
                         <div class="form-control">
-                            <label for="bypass-rules">🟩 Bypass rules</label>
+                            <label for="bypass-rules" data-i18n="form.bypassRules">🟩 Bypass rules</label>
                             <div>
                                 <div id="bypass-rules" class="rules inner-container">
                                     <div class="routing">
                                         <input type="checkbox" id="bypassIran" name="bypassIran" value="true">
-                                        <label for="bypassIran">Iran</label>
+                                        <label for="bypassIran" data-i18n="routing.iran">Iran</label>
                                     </div>
                                     <div class="routing">
                                         <input type="checkbox" id="bypassChina" name="bypassChina" value="true">
-                                        <label for="bypassChina">China</label>
+                                        <label for="bypassChina" data-i18n="routing.china">China</label>
                                     </div>
                                     <div class="routing">
                                         <input type="checkbox" id="bypassRussia" name="bypassRussia" value="true">
-                                        <label for="bypassRussia">Russia</label>
+                                        <label for="bypassRussia" data-i18n="routing.russia">Russia</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="form-control">
-                            <label for="block-rules">🟥 Block rules</label>
+                            <label for="block-rules" data-i18n="form.blockRules">🟥 Block rules</label>
                             <div>
                                 <div id="block-rules" class="rules inner-container">
                                     <div class="routing">
                                         <input type="checkbox" id="blockAds" name="blockAds" value="true">
-                                        <label for="blockAds">Ads.</label>
+                                        <label for="blockAds" data-i18n="routing.ads">Ads.</label>
                                     </div>
                                     <div class="routing">
                                         <input type="checkbox" id="blockPorn" name="blockPorn" value="true">
-                                        <label for="blockPorn">Porn</label>
+                                        <label for="blockPorn" data-i18n="routing.porn">Porn</label>
                                     </div>
                                     <div class="routing">
                                         <input type="checkbox" id="blockUDP443" name="blockUDP443" value="true">
-                                        <label for="blockUDP443">QUIC</label>
+                                        <label for="blockUDP443" data-i18n="routing.quic">QUIC</label>
                                     </div>
                                     <div class="routing">
                                         <input type="checkbox" id="blockMalware" name="blockMalware" value="true" onchange="handleRiskyRules(event)">
-                                        <label for="blockMalware">Malware</label>
+                                        <label for="blockMalware" data-i18n="routing.malware">Malware</label>
                                     </div>
                                     <div class="routing">
                                         <input type="checkbox" id="blockPhishing" name="blockPhishing" value="true" onchange="handleRiskyRules(event)">
-                                        <label for="blockPhishing">Phishing</label>
+                                        <label for="blockPhishing" data-i18n="routing.phishing">Phishing</label>
                                     </div>
                                     <div class="routing">
                                         <input type="checkbox" id="blockCryptominers" name="blockCryptominers" value="true" onchange="handleRiskyRules(event)">
-                                        <label for="blockCryptominers">Cryptominers</label>
+                                        <label for="blockCryptominers" data-i18n="routing.cryptominers">Cryptominers</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="container">
-                        <h4><span class="material-symbols-rounded">tune</span> Custom Rules</h4>
+                        <h4><span class="material-symbols-rounded">tune</span> <span
+                                data-i18n="section.customRules">Custom Rules</span></h4>
                         <div class="form-control">
-                            <label for="customBypassRules">🟩 Bypass IPs / Domains</label>
+                            <label for="customBypassRules" data-i18n="form.bypassIpsDomains">🟩 Bypass IPs / Domains</label>
                             <div>
                                 <textarea type="text" id="customBypassRules" name="customBypassRules"
                                     rows="1"></textarea>
                             </div>
                         </div>
                         <div class="form-control">
-                            <label for="customBlockRules">🟥 Block IPs / Domains</label>
+                            <label for="customBlockRules" data-i18n="form.blockIpsDomains">🟥 Block IPs / Domains</label>
                             <div>
                                 <textarea type="text" id="customBlockRules" name="customBlockRules" rows="1"></textarea>
                             </div>
                         </div>
                     </div>
                     <div class="container">
-                        <h4><span class="material-symbols-rounded">tune</span> Sanction Rules</h4>
+                        <h4><span class="material-symbols-rounded">tune</span> <span
+                                data-i18n="section.sanctionRules">Sanction Rules</span></h4>
                         <div class="form-control">
-                            <label for="bypass-sanction-rules">🟩 Bypass rules</label>
+                            <label for="bypass-sanction-rules" data-i18n="form.bypassRules">🟩 Bypass rules</label>
                             <div>
                                 <div id="bypass-sanction-rules" class="rules inner-container">
                                     <div class="routing">
                                         <input type="checkbox" id="bypassOpenAi" name="bypassOpenAi" value="true">
-                                        <label for="bypassOpenAi">ChatGPT</label>
+                                        <label for="bypassOpenAi" data-i18n="routing.chatgpt">ChatGPT</label>
                                     </div>
                                     <div class="routing">
                                         <input type="checkbox" id="bypassGoogleAi" name="bypassGoogleAi" value="true">
-                                        <label for="bypassGoogleAi">Google AIs</label>
+                                        <label for="bypassGoogleAi" data-i18n="routing.googleAi">Google AIs</label>
                                     </div>
                                     <div class="routing">
                                         <input type="checkbox" id="bypassMicrosoft" name="bypassMicrosoft" value="true">
-                                        <label for="bypassMicrosoft">Microsoft</label>
+                                        <label for="bypassMicrosoft" data-i18n="routing.microsoft">Microsoft</label>
                                     </div>
                                     <div class="routing">
                                         <input type="checkbox" id="bypassOracle" name="bypassOracle" value="true">
-                                        <label for="bypassOracle">Oracle</label>
+                                        <label for="bypassOracle" data-i18n="routing.oracle">Oracle</label>
                                     </div>
                                     <div class="routing">
                                         <input type="checkbox" id="bypassDocker" name="bypassDocker" value="true">
-                                        <label for="bypassDocker">Docker</label>
+                                        <label for="bypassDocker" data-i18n="routing.docker">Docker</label>
                                     </div>
                                     <div class="routing">
                                         <input type="checkbox" id="bypassAdobe" name="bypassAdobe" value="true">
-                                        <label for="bypassAdobe">Adobe</label>
+                                        <label for="bypassAdobe" data-i18n="routing.adobe">Adobe</label>
                                     </div>
                                     <div class="routing">
                                         <input type="checkbox" id="bypassEpicGames" name="bypassEpicGames" value="true">
-                                        <label for="bypassEpicGames">Epic Games</label>
+                                        <label for="bypassEpicGames" data-i18n="routing.epicGames">Epic Games</label>
                                     </div>
                                     <div class="routing">
                                         <input type="checkbox" id="bypassIntel" name="bypassIntel" value="true">
-                                        <label for="bypassIntel">Intel</label>
+                                        <label for="bypassIntel" data-i18n="routing.intel">Intel</label>
                                     </div>
                                     <div class="routing">
                                         <input type="checkbox" id="bypassAmd" name="bypassAmd" value="true">
-                                        <label for="bypassAmd">AMD</label>
+                                        <label for="bypassAmd" data-i18n="routing.amd">AMD</label>
                                     </div>
                                     <div class="routing">
                                         <input type="checkbox" id="bypassNvidia" name="bypassNvidia" value="true">
-                                        <label for="bypassNvidia">Nvidia</label>
+                                        <label for="bypassNvidia" data-i18n="routing.nvidia">Nvidia</label>
                                     </div>
                                     <div class="routing">
                                         <input type="checkbox" id="bypassAsus" name="bypassAsus" value="true">
-                                        <label for="bypassAsus">Asus</label>
+                                        <label for="bypassAsus" data-i18n="routing.asus">Asus</label>
                                     </div>
                                     <div class="routing">
                                         <input type="checkbox" id="bypassHp" name="bypassHp" value="true">
-                                        <label for="bypassHp">HP</label>
+                                        <label for="bypassHp" data-i18n="routing.hp">HP</label>
                                     </div>
                                     <div class="routing">
                                         <input type="checkbox" id="bypassLenovo" name="bypassLenovo" value="true">
-                                        <label for="bypassLenovo">Lenovo</label>
+                                        <label for="bypassLenovo" data-i18n="routing.lenovo">Lenovo</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="form-control">
-                            <label for="customBypassSanctionRules">🟩 Bypass Domains</label>
+                            <label for="customBypassSanctionRules" data-i18n="form.bypassDomains">🟩 Bypass Domains</label>
                             <div>
                                 <textarea type="text" id="customBypassSanctionRules" name="customBypassSanctionRules"
                                     rows="1"></textarea>
@@ -598,16 +622,19 @@
             </details>
             <div id="apply" class="form-control apply">
                 <button type="submit" id="applyButton" class="button disabled apply-settings" form="configForm">
-                    Apply <span class="material-symbols-rounded">check_circle</span>
+                    <span class="apply-text" data-i18n="actions.apply">Apply</span>
+                    <span class="material-symbols-rounded">check_circle</span>
                 </button>
-                <button type="button" class="panel-settings" title="Reset panel settings to default"
-                    onclick="resetSettings()">
+                <button type="button" class="panel-settings" data-i18n-title="actions.resetPanel"
+                    title="Reset panel settings to default" onclick="resetSettings()">
                     <i id="refresh-btn" class="fa fa-refresh fa-2x" aria-hidden="true"></i>
                 </button>
-                <button type="button" class="panel-settings" title="Export panel settings" onclick="exportSettings()">
+                <button type="button" class="panel-settings" data-i18n-title="actions.exportPanel"
+                    title="Export panel settings" onclick="exportSettings()">
                     <i class="fa fa-cloud-download fa-2x" aria-hidden="true"></i>
                 </button>
-                <button type="button" class="panel-settings" title="Import panel settings" onclick="importSettings()">
+                <button type="button" class="panel-settings" data-i18n-title="actions.importPanel"
+                    title="Import panel settings" onclick="importSettings()">
                     <i class="fa fa-cloud-upload fa-2x" aria-hidden="true"></i>
                     <input type="file" id="fileInput" accept=".dat" style="display: none;"
                         onchange="uploadSettings(event)" />
@@ -616,12 +643,13 @@
         </form>
     </div>
     <div class="form-container container">
-        <h2><span class="material-symbols-rounded">share</span> Subscriptions</h2>
+        <h2><span class="material-symbols-rounded">share</span> <span
+                data-i18n="subscriptions.title">Subscriptions</span></h2>
         <details>
             <summary>
-                <h3>Normal
+                <h3><span data-i18n="subscriptions.normal">Normal</span>
                     <a href="https://bia-pain-bache.github.io/BPB-Worker-Panel/usage/normal/" target="_blank"
-                        title="Help">
+                        data-i18n-title="common.help" title="Help">
                         <span class="material-symbols-rounded">info</span>
                     </a>
                 </h3>
@@ -652,14 +680,16 @@
                             </div>
                         </td>
                         <td>
-                            <button title="Display QR code"
-                                onclick="openQR('normal', 'xray', 'Normal', 'Normal Subscription')">
+                            <button data-i18n-title="actions.displayQr" title="Display QR code"
+                                onclick="openQR('normal', 'xray', 'subscriptions.normalTag', 'subscriptions.normalTitle')">
                                 <span class="material-symbols-rounded">qr_code</span>
                             </button>
-                            <button title="Copy subscription URL" onclick="subURL('normal', 'xray', 'Normal')">
+                            <button data-i18n-title="actions.copySubscription" title="Copy subscription URL"
+                                onclick="subURL('normal', 'xray', 'subscriptions.normalTag')">
                                 <span class="material-symbols-rounded">content_copy</span>
                             </button>
-                            <button title="Download config" onclick="dlURL('normal', 'xray')">
+                            <button data-i18n-title="actions.downloadConfig" title="Download config"
+                                onclick="dlURL('normal', 'xray')">
                                 <span class="material-symbols-rounded">download</span>
                             </button>
                         </td>
@@ -676,14 +706,16 @@
                             </div>
                         </td>
                         <td>
-                            <button title="Display QR code"
-                                onclick="openQR('normal', 'sing-box', 'Normal', 'Normal Subscription', true)">
+                            <button data-i18n-title="actions.displayQr" title="Display QR code"
+                                onclick="openQR('normal', 'sing-box', 'subscriptions.normalTag', 'subscriptions.normalTitle', true)">
                                 <span class="material-symbols-rounded">qr_code</span>
                             </button>
-                            <button title="Copy subscription URL" onclick="subURL('normal', 'sing-box', 'Normal')">
+                            <button data-i18n-title="actions.copySubscription" title="Copy subscription URL"
+                                onclick="subURL('normal', 'sing-box', 'subscriptions.normalTag')">
                                 <span class="material-symbols-rounded">content_copy</span>
                             </button>
-                            <button title="Download config" onclick="dlURL('normal', 'sing-box')">
+                            <button data-i18n-title="actions.downloadConfig" title="Download config"
+                                onclick="dlURL('normal', 'sing-box')">
                                 <span class="material-symbols-rounded">download</span>
                             </button>
                         </td>
@@ -712,14 +744,16 @@
                             </div>
                         </td>
                         <td>
-                            <button title="Display QR code"
-                                onclick="openQR('normal', 'clash', 'Normal', 'Normal Subscription')">
+                            <button data-i18n-title="actions.displayQr" title="Display QR code"
+                                onclick="openQR('normal', 'clash', 'subscriptions.normalTag', 'subscriptions.normalTitle')">
                                 <span class="material-symbols-rounded">qr_code</span>
                             </button>
-                            <button title="Copy subscription URL" onclick="subURL('normal', 'clash', 'Normal')">
+                            <button data-i18n-title="actions.copySubscription" title="Copy subscription URL"
+                                onclick="subURL('normal', 'clash', 'subscriptions.normalTag')">
                                 <span class="material-symbols-rounded">content_copy</span>
                             </button>
-                            <button title="Download config" onclick="dlURL('normal', 'clash')">
+                            <button data-i18n-title="actions.downloadConfig" title="Download config"
+                                onclick="dlURL('normal', 'clash')">
                                 <span class="material-symbols-rounded">download</span>
                             </button>
                         </td>
@@ -729,9 +763,9 @@
         </details>
         <details>
             <summary>
-                <h3>Fragment
+                <h3><span data-i18n="subscriptions.fragment">Fragment</span>
                     <a href="https://bia-pain-bache.github.io/BPB-Worker-Panel/usage/fragment/" target="_blank"
-                        title="Help">
+                        data-i18n-title="common.help" title="Help">
                         <span class="material-symbols-rounded">info</span>
                     </a>
                 </h3>
@@ -762,14 +796,16 @@
                             </div>
                         </td>
                         <td>
-                            <button title="Display QR code"
-                                onclick="openQR('fragment', 'xray', 'Fragment', 'Fragment Subscription')">
+                            <button data-i18n-title="actions.displayQr" title="Display QR code"
+                                onclick="openQR('fragment', 'xray', 'subscriptions.fragmentTag', 'subscriptions.fragmentTitle')">
                                 <span class="material-symbols-rounded">qr_code</span>
                             </button>
-                            <button title="Copy subscription URL" onclick="subURL('fragment', 'xray', 'Fragment')">
+                            <button data-i18n-title="actions.copySubscription" title="Copy subscription URL"
+                                onclick="subURL('fragment', 'xray', 'subscriptions.fragmentTag')">
                                 <span class="material-symbols-rounded">content_copy</span>
                             </button>
-                            <button title="Download config" onclick="dlURL('fragment', 'xray')">
+                            <button data-i18n-title="actions.downloadConfig" title="Download config"
+                                onclick="dlURL('fragment', 'xray')">
                                 <span class="material-symbols-rounded">download</span>
                             </button>
                         </td>
@@ -786,14 +822,16 @@
                             </div>
                         </td>
                         <td>
-                            <button title="Display QR code"
-                                onclick="openQR('fragment', 'sing-box', 'Fragment', 'Fragment Subscription', true)">
+                            <button data-i18n-title="actions.displayQr" title="Display QR code"
+                                onclick="openQR('fragment', 'sing-box', 'subscriptions.fragmentTag', 'subscriptions.fragmentTitle', true)">
                                 <span class="material-symbols-rounded">qr_code</span>
                             </button>
-                            <button title="Copy subscription URL" onclick="subURL('fragment', 'sing-box', 'Fragment')">
+                            <button data-i18n-title="actions.copySubscription" title="Copy subscription URL"
+                                onclick="subURL('fragment', 'sing-box', 'subscriptions.fragmentTag')">
                                 <span class="material-symbols-rounded">content_copy</span>
                             </button>
-                            <button title="Download config" onclick="dlURL('fragment', 'sing-box')">
+                            <button data-i18n-title="actions.downloadConfig" title="Download config"
+                                onclick="dlURL('fragment', 'sing-box')">
                                 <span class="material-symbols-rounded">download</span>
                             </button>
                         </td>
@@ -803,9 +841,9 @@
         </details>
         <details>
             <summary>
-                <h3>Warp
+                <h3><span data-i18n="subscriptions.warp">Warp</span>
                     <a href="https://bia-pain-bache.github.io/BPB-Worker-Panel/usage/warp/" target="_blank"
-                        title="Help">
+                        data-i18n-title="common.help" title="Help">
                         <span class="material-symbols-rounded">info</span>
                     </a>
                 </h3>
@@ -828,14 +866,16 @@
                             </div>
                         </td>
                         <td>
-                            <button title="Display QR code"
-                                onclick="openQR('warp', 'xray', 'Warp', 'Warp Subscription')">
+                            <button data-i18n-title="actions.displayQr" title="Display QR code"
+                                onclick="openQR('warp', 'xray', 'subscriptions.warpTag', 'subscriptions.warpTitle')">
                                 <span class="material-symbols-rounded">qr_code</span>
                             </button>
-                            <button title="Copy subscription URL" onclick="subURL('warp', 'xray', 'Warp')">
+                            <button data-i18n-title="actions.copySubscription" title="Copy subscription URL"
+                                onclick="subURL('warp', 'xray', 'subscriptions.warpTag')">
                                 <span class="material-symbols-rounded">content_copy</span>
                             </button>
-                            <button title="Download config" onclick="dlURL('warp', 'xray')">
+                            <button data-i18n-title="actions.downloadConfig" title="Download config"
+                                onclick="dlURL('warp', 'xray')">
                                 <span class="material-symbols-rounded">download</span>
                             </button>
                         </td>
@@ -852,14 +892,16 @@
                             </div>
                         </td>
                         <td>
-                            <button title="Display QR code"
-                                onclick="openQR('warp', 'sing-box', 'Warp', 'Warp Subscription', true)">
+                            <button data-i18n-title="actions.displayQr" title="Display QR code"
+                                onclick="openQR('warp', 'sing-box', 'subscriptions.warpTag', 'subscriptions.warpTitle', true)">
                                 <span class="material-symbols-rounded">qr_code</span>
                             </button>
-                            <button title="Copy subscription URL" onclick="subURL('warp', 'sing-box', 'Warp')">
+                            <button data-i18n-title="actions.copySubscription" title="Copy subscription URL"
+                                onclick="subURL('warp', 'sing-box', 'subscriptions.warpTag')">
                                 <span class="material-symbols-rounded">content_copy</span>
                             </button>
-                            <button title="Download config" onclick="dlURL('warp', 'sing-box')">
+                            <button data-i18n-title="actions.downloadConfig" title="Download config"
+                                onclick="dlURL('warp', 'sing-box')">
                                 <span class="material-symbols-rounded">download</span>
                             </button>
                         </td>
@@ -888,14 +930,16 @@
                             </div>
                         </td>
                         <td>
-                            <button title="Display QR code"
-                                onclick="openQR('warp', 'clash', 'Warp', 'Warp Subscription')">
+                            <button data-i18n-title="actions.displayQr" title="Display QR code"
+                                onclick="openQR('warp', 'clash', 'subscriptions.warpTag', 'subscriptions.warpTitle')">
                                 <span class="material-symbols-rounded">qr_code</span>
                             </button>
-                            <button title="Copy subscription URL" onclick="subURL('warp', 'clash', 'Warp')">
+                            <button data-i18n-title="actions.copySubscription" title="Copy subscription URL"
+                                onclick="subURL('warp', 'clash', 'subscriptions.warpTag')">
                                 <span class="material-symbols-rounded">content_copy</span>
                             </button>
-                            <button title="Download config" onclick="dlURL('warp', 'clash')">
+                            <button data-i18n-title="actions.downloadConfig" title="Download config"
+                                onclick="dlURL('warp', 'clash')">
                                 <span class="material-symbols-rounded">download</span>
                             </button>
                         </td>
@@ -908,7 +952,8 @@
                             </div>
                         </td>
                         <td>
-                            <button title="Download configs zip" id="dlConfigsBtn" type="button"
+                            <button data-i18n-title="actions.downloadZip" title="Download configs zip" id="dlConfigsBtn"
+                                type="button"
                                 onclick="downloadWarpConfigs(false)">
                                 <span class="material-symbols-rounded">download</span>
                             </button>
@@ -919,9 +964,9 @@
         </details>
         <details>
             <summary>
-                <h3>Warp PRO
+                <h3><span data-i18n="subscriptions.warpPro">Warp PRO</span>
                     <a href="https://bia-pain-bache.github.io/BPB-Worker-Panel/usage/warp-pro/" target="_blank"
-                        title="Help">
+                        data-i18n-title="common.help" title="Help">
                         <span class="material-symbols-rounded">info</span>
                     </a>
                 </h3>
@@ -944,14 +989,16 @@
                             </div>
                         </td>
                         <td>
-                            <button title="Display QR code"
-                                onclick="openQR('warp-pro', 'xray', 'Warp Pro', 'Warp Pro Subscription')">
+                            <button data-i18n-title="actions.displayQr" title="Display QR code"
+                                onclick="openQR('warp-pro', 'xray', 'subscriptions.warpProTag', 'subscriptions.warpProTitle')">
                                 <span class="material-symbols-rounded">qr_code</span>
                             </button>
-                            <button title="Copy subscription URL" onclick="subURL('warp-pro', 'xray', 'Warp Pro')">
+                            <button data-i18n-title="actions.copySubscription" title="Copy subscription URL"
+                                onclick="subURL('warp-pro', 'xray', 'subscriptions.warpProTag')">
                                 <span class="material-symbols-rounded">content_copy</span>
                             </button>
-                            <button title="Download config" onclick="dlURL('warp-pro', 'xray')">
+                            <button data-i18n-title="actions.downloadConfig" title="Download config"
+                                onclick="dlURL('warp-pro', 'xray')">
                                 <span class="material-symbols-rounded">download</span>
                             </button>
                         </td>
@@ -968,15 +1015,16 @@
                             </div>
                         </td>
                         <td>
-                            <button title="Display QR code"
-                                onclick="openQR('warp-pro', 'xray-knocker', 'Warp Pro', 'Warp Pro Subscription')">
+                            <button data-i18n-title="actions.displayQr" title="Display QR code"
+                                onclick="openQR('warp-pro', 'xray-knocker', 'subscriptions.warpProTag', 'subscriptions.warpProTitle')">
                                 <span class="material-symbols-rounded">qr_code</span>
                             </button>
-                            <button title="Copy subscription URL"
-                                onclick="subURL('warp-pro', 'xray-knocker', 'Warp Pro')">
+                            <button data-i18n-title="actions.copySubscription" title="Copy subscription URL"
+                                onclick="subURL('warp-pro', 'xray-knocker', 'subscriptions.warpProTag')">
                                 <span class="material-symbols-rounded">content_copy</span>
                             </button>
-                            <button title="Download config" onclick="dlURL('warp-pro', 'xray-knocker')">
+                            <button data-i18n-title="actions.downloadConfig" title="Download config"
+                                onclick="dlURL('warp-pro', 'xray-knocker')">
                                 <span class="material-symbols-rounded">download</span>
                             </button>
                         </td>
@@ -1005,14 +1053,16 @@
                             </div>
                         </td>
                         <td>
-                            <button title="Display QR code"
-                                onclick="openQR('warp-pro', 'clash', 'Warp Pro', 'Warp Pro Subscription')">
+                            <button data-i18n-title="actions.displayQr" title="Display QR code"
+                                onclick="openQR('warp-pro', 'clash', 'subscriptions.warpProTag', 'subscriptions.warpProTitle')">
                                 <span class="material-symbols-rounded">qr_code</span>
                             </button>
-                            <button title="Copy subscription URL" onclick="subURL('warp-pro', 'clash', 'Warp Pro')">
+                            <button data-i18n-title="actions.copySubscription" title="Copy subscription URL"
+                                onclick="subURL('warp-pro', 'clash', 'subscriptions.warpProTag')">
                                 <span class="material-symbols-rounded">content_copy</span>
                             </button>
-                            <button title="Download config" onclick="dlURL('warp-pro', 'clash')">
+                            <button data-i18n-title="actions.downloadConfig" title="Download config"
+                                onclick="dlURL('warp-pro', 'clash')">
                                 <span class="material-symbols-rounded">download</span>
                             </button>
                         </td>
@@ -1029,7 +1079,8 @@
                             </div>
                         </td>
                         <td>
-                            <button title="Download configs zip" id="dlAmneziaConfigsBtn" type="button"
+                            <button data-i18n-title="actions.downloadZip" title="Download configs zip"
+                                id="dlAmneziaConfigsBtn" type="button"
                                 onclick="downloadWarpConfigs(true)">
                                 <span class="material-symbols-rounded">download</span>
                             </button>
@@ -1044,10 +1095,10 @@
             <div class="modal-content">
                 <span class="close" id="closeResetPass" onclick="closeResetPass()">&times;</span>
                 <form id="passwordChangeForm" onsubmit="resetPassword(event)">
-                    <h2>Change Password</h2>
+                    <h2><span data-i18n="password.changeTitle">Change Password</span></h2>
                     <div class="section">
                         <div class="form-control">
-                            <label for="newPassword">New Password</label>
+                            <label for="newPassword" data-i18n="password.new">New Password</label>
                             <div class="password-wrapper">
                                 <input type="password" id="newPassword" name="newPassword" required>
                                 <span class="material-symbols-rounded toggle-password">
@@ -1056,7 +1107,7 @@
                             </div>
                         </div>
                         <div class="form-control">
-                            <label for="confirmPassword">Confirm Password</label>
+                            <label for="confirmPassword" data-i18n="password.confirm">Confirm Password</label>
                             <div class="password-wrapper">
                                 <input type="password" id="confirmPassword" name="confirmPassword" required>
                                 <span class="material-symbols-rounded toggle-password">
@@ -1066,7 +1117,8 @@
                         </div>
                     </div>
                     <div id="passwordError" class="password-error"></div>
-                    <button id="changePasswordBtn" type="submit" class="button">Change Password</button>
+                    <button id="changePasswordBtn" type="submit" class="button"
+                        data-i18n="password.changeAction">Change Password</button>
                 </form>
             </div>
         </div>
@@ -1080,7 +1132,7 @@
             </div>
         </div>
         <div class="header-container">
-            <h2><span class="material-symbols-rounded">fingerprint</span> My IP</h2>
+            <h2><span class="material-symbols-rounded">fingerprint</span> <span data-i18n="myIp.title">My IP</span></h2>
             <button type="button" id="refresh-geo-location" class="refresh-geo-location" onclick="fetchIPInfo()">
                 <i class="fa fa-refresh fa-2x refresh-my-ip" aria-hidden="true"></i>
             </button>
@@ -1088,28 +1140,28 @@
         <div class="my-ip">
             <table id="ips" class="my-ip">
                 <thead>
-                    <th>Information</th>
-                    <th>Cloudflare targets</th>
-                    <th>Other targets</th>
+                    <th data-i18n="myIp.info">Information</th>
+                    <th data-i18n="myIp.cloudflare">Cloudflare targets</th>
+                    <th data-i18n="myIp.other">Other targets</th>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>IP</td>
+                        <td data-i18n="myIp.ip">IP</td>
                         <td id="cf-ip"></td>
                         <td id="ip"></td>
                     </tr>
                     <tr>
-                        <td>Country</td>
+                        <td data-i18n="myIp.country">Country</td>
                         <td id="cf-country"></td>
                         <td id="country"></td>
                     </tr>
                     <tr>
-                        <td>City</td>
+                        <td data-i18n="myIp.city">City</td>
                         <td id="cf-city"></td>
                         <td id="city"></td>
                     </tr>
                     <tr>
-                        <td>ISP</td>
+                        <td data-i18n="myIp.isp">ISP</td>
                         <td id="cf-isp"></td>
                         <td id="isp"></td>
                     </tr>
@@ -1122,11 +1174,14 @@
             <div class="github-container">
                 <i class="fa fa-github"></i>
                 <a class="link" id="github-link" href="https://github.com/bia-pain-bache/BPB-Worker-Panel"
-                    target="_blank">Github</a>
+                    target="_blank" data-i18n="footer.github">Github</a>
             </div>
-            <button id="openResetPass" class="button" onclick="openResetPass()">Change Password <span
-                    class="material-symbols-rounded">key_vertical</span></button>
-            <button type="button" id="logout" class="logout" title="Log out" onclick="logout(event)">
+            <button id="openResetPass" class="button" onclick="openResetPass()">
+                <span data-i18n="password.changeAction">Change Password</span>
+                <span class="material-symbols-rounded">key_vertical</span>
+            </button>
+            <button type="button" id="logout" class="logout" data-i18n-title="actions.logout" title="Log out"
+                onclick="logout(event)">
                 <i class="fa fa-power-off fa-2x" aria-hidden="true"></i>
             </button>
         </div>
@@ -1141,6 +1196,7 @@
         polyfillCountryFlagEmojis();
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://unpkg.com/i18next@23.12.2/i18next.min.js"></script>
     <script>__SCRIPT__</script>
 </body>
 

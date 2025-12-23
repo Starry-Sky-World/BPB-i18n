@@ -4,7 +4,7 @@ repo_url: https://github.com/bia-pain-bache/BPB-Worker-Panel
 copyright: Copyright &copy; BPB
 
 use_directory_urls: true
-site_dir: ../../site/fa
+site_dir: ../../site/zh
 extra_css:
   - stylesheet/extra.css
 extra_javascript:
@@ -15,10 +15,10 @@ theme:
   custom_dir: ../assets
   logo: favicon.ico
   favicon: favicon.ico
-  direction: rtl
-  language: fa
+  direction: ltr
+  language: zh
   font:
-    text: Vazirmatn
+    text: Noto Sans SC
   palette:
     - media: "(prefers-color-scheme)"
       toggle:
@@ -60,15 +60,15 @@ markdown_extensions:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - md_in_html
-  
+
 extra:
   alternate:
     - name: English
       lang: en
       link: /BPB-Worker-Panel/
-    - name: 中文
-      lang: zh
-      link: /BPB-Worker-Panel/zh/
+    - name: فارسی
+      lang: fa
+      link: /BPB-Worker-Panel/fa/
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/bia-pain-bache/BPB-Worker-Panel
@@ -78,24 +78,24 @@ plugins:
   - search
 
 nav:
-  - خانه: index.md
-  - راه‌اندازی:
-    - خودکار: installation/wizard.md
-    - Pages دستی: installation/pages-manual.md
-    - Workers دستی: installation/workers-manual.md
-  - راهنمای تنظیمات:
+  - 首页: index.md
+  - 安装:
+    - 向导: installation/wizard.md
+    - 手动 - Pages: installation/pages-manual.md
+    - 手动 - Workers: installation/workers-manual.md
+  - 配置:
     - configuration/index.md
-    - تنظیمات مشترک یا Common: configuration/common.md 
-    - پروتکل‌های VLESS و Trojan: configuration/vless-trojan.md 
-    - تنظیمات Fragment: configuration/fragment.md
-    - تنظیمات عمومی Warp: configuration/warp.md
-    - تنظیمات Warp PRO: configuration/warp-pro.md
-    - قوانین مسیریابی یا Routing Rules: configuration/routing-rules.md
-  - نحوه‌ی استفاده: 
+    - 通用: configuration/common.md
+    - VLESS - Trojan: configuration/vless-trojan.md 
+    - 分片: configuration/fragment.md
+    - Warp 常规: configuration/warp.md
+    - Warp PRO: configuration/warp-pro.md
+    - 路由规则: configuration/routing-rules.md
+  - 使用:
     - usage/index.md
-    - اشتراک Normal: usage/normal.md
-    - اشتراک Fragment: usage/fragment.md
-    - اشتراک Warp: usage/warp.md
-    - اشتراک Warp PRO: usage/warp-pro.md
-    - IP من: usage/my-ip.md
-  - سوالات متداول: faq.md
+    - 常规: usage/normal.md
+    - 分片: usage/fragment.md
+    - Warp: usage/warp.md
+    - Warp PRO: usage/warp-pro.md
+    - 我的 IP: usage/my-ip.md
+  - 常见问题: faq.md

@@ -20,11 +20,19 @@
                 v__VERSION__
             </span>
         </h1>
+        <div class="lang-switcher">
+            <label for="languageSelect" data-i18n="language.label">Language</label>
+            <select id="languageSelect">
+                <option value="en">English</option>
+                <option value="fa">فارسی</option>
+                <option value="zh">中文</option>
+            </select>
+        </div>
         <div class="form-container">
-            <h2>User Login</h2>
+            <h2><span data-i18n="login.title">User Login</span></h2>
             <form id="loginForm" class="login-form">
                 <div class="form-control">
-                    <label for="password">Password</label>
+                    <label for="password" data-i18n="login.password">Password</label>
                     <div class="password-wrapper">
                         <input type="password" id="password" name="password" required>
                         <span id="togglePassword" class="material-symbols-rounded toggle-password">
@@ -34,7 +42,7 @@
                 </div>
                 <div id="passwordError" class="hint"></div>
                 <button type="submit" class="button">
-                    Login
+                    <span data-i18n="login.submit">Login</span>
                     <span class="material-symbols-rounded">
                         login
                     </span>
@@ -42,6 +50,7 @@
             </form>
         </div>
     </div>
+    <script src="https://unpkg.com/i18next@23.12.2/i18next.min.js"></script>
     <script>__SCRIPT__</script>
 </body>
 
