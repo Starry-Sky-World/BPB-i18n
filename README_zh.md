@@ -42,10 +42,10 @@
 
 ## 快速开始
 
-- [安装方式](https://bia-pain-bache.github.io/BPB-Worker-Panel/zh/installation/wizard/)
-- [配置指南](https://bia-pain-bache.github.io/BPB-Worker-Panel/zh/configuration/)
-- [使用方法](https://bia-pain-bache.github.io/BPB-Worker-Panel/zh/usage/)
-- [常见问题](https://bia-pain-bache.github.io/BPB-Worker-Panel/zh/faq/)
+- [安装方式](https://bpb.amethyst.ltd/zh/installation/wizard/)
+- [配置指南](https://bpb.amethyst.ltd/zh/configuration/)
+- [使用方法](https://bpb.amethyst.ltd/zh/usage/)
+- [常见问题](https://bpb.amethyst.ltd/zh/faq/)
 
 ## 支持的客户端
 

@@ -42,10 +42,10 @@ This project is aimed to provide a user panel to access FREE, SECURE and PRIVATE
 
 ## Getting started
 
-- [Installation methods](https://bia-pain-bache.github.io/BPB-Worker-Panel/installation/wizard/)
-- [Configuration](https://bia-pain-bache.github.io/BPB-Worker-Panel/configuration/)
-- [How to use](https://bia-pain-bache.github.io/BPB-Worker-Panel/usage/)
-- [FAQ](https://bia-pain-bache.github.io/BPB-Worker-Panel/faq/)
+- [Installation methods](https://bpb.amethyst.ltd/installation/wizard/)
+- [Configuration](https://bpb.amethyst.ltd/configuration/)
+- [How to use](https://bpb.amethyst.ltd/usage/)
+- [FAQ](https://bpb.amethyst.ltd/faq/)
 
 ## Supported Clients
 

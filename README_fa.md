@@ -42,10 +42,10 @@
 
 ## شروع به کار
 
-- [روش‌های راه‌اندازی](https://bia-pain-bache.github.io/BPB-Worker-Panel/fa/installation/wizard/)
-- [راهنمای تنظیمات](https://bia-pain-bache.github.io/BPB-Worker-Panel/fa/configuration/)
-- [نحوه‌ی استفاده](https://bia-pain-bache.github.io/BPB-Worker-Panel/fa/usage/)
-- [پرسش‌های متداول (FAQ)](https://bia-pain-bache.github.io/BPB-Worker-Panel/en/faq/)
+- [روش‌های راه‌اندازی](https://bpb.amethyst.ltd/fa/installation/wizard/)
+- [راهنمای تنظیمات](https://bpb.amethyst.ltd/fa/configuration/)
+- [نحوه‌ی استفاده](https://bpb.amethyst.ltd/fa/usage/)
+- [پرسش‌های متداول (FAQ)](https://bpb.amethyst.ltd/en/faq/)
 
 ## برنامه‌های پشتیبانی شده
 
